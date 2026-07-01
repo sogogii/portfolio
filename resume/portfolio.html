@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #1c1b18;
+    --body: #44423c;
+    --muted: #76736b;
+    --line: #e4e0d6;
+    --accent: #b07d34;
+    --accent-soft: #f4ede0;
+    --paper: #fdfcf9;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Inter', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  @page { size: A4; margin: 0; }
+
+  html, body { background: #d9d6cf; }
+  body {
+    font-family: var(--sans);
+    color: var(--body);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-size: 10.2px;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    background: var(--paper);
+    padding: 16mm 17mm 14mm;
+    position: relative;
+  }
+
+  /* ---- Header ---- */
+  header {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 6mm;
+    margin-bottom: 6mm;
+  }
+  .name {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 34px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .role {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 15px;
+    color: var(--accent);
+    margin-top: 4px;
+  }
+  .contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+    margin-top: 10px;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.01em;
+    color: var(--muted);
+  }
+  .contact a { color: var(--muted); text-decoration: none; }
+  .contact span.sep { color: var(--line); }
+
+  /* ---- Layout ---- */
+  .body-grid {
+    display: grid;
+    grid-template-columns: 1fr 62mm;
+    gap: 10mm;
+  }
+  .main { min-width: 0; }
+  .side { min-width: 0; }
+
+  section { margin-bottom: 6mm; }
+  .sec-title {
+    font-family: var(--mono);
+    font-size: 8.5px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 4mm;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sec-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ---- Summary ---- */
+  .summary {
+    font-size: 10.6px;
+    color: var(--body);
+    line-height: 1.6;
+  }
+
+  /* ---- Entry ---- */
+  .entry { margin-bottom: 5mm; }
+  .entry:last-child { margin-bottom: 0; }
+  .entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .entry-title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 12.5px;
+    color: var(--ink);
+  }
+  .entry-title .at { color: var(--accent); font-weight: 500; }
+  .entry-date {
+    font-family: var(--mono);
+    font-size: 8px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .entry-sub {
+    font-style: italic;
+    font-family: var(--serif);
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 1px;
+  }
+  ul.points { list-style: none; margin-top: 4px; }
+  ul.points li {
+    position: relative;
+    padding-left: 11px;
+    margin-bottom: 2.5px;
+    color: var(--body);
+    font-size: 9.8px;
+    line-height: 1.45;
+  }
+  ul.points li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 6px;
+    width: 4px; height: 1px;
+    background: var(--accent);
+  }
+  .tech {
+    margin-top: 4px;
+    font-family: var(--mono);
+    font-size: 7.8px;
+    color: var(--muted);
+    letter-spacing: 0.01em;
+  }
+
+  /* ---- Sidebar ---- */
+  .side .sec-title { margin-bottom: 3mm; }
+  .skill-group { margin-bottom: 4mm; }
+  .skill-group h4 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 10px;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 4px; }
+  .chip {
+    font-family: var(--mono);
+    font-size: 7.6px;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid #ead9bd;
+    border-radius: 3px;
+    padding: 2px 6px;
+    letter-spacing: 0.01em;
+  }
+  .lang-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 3px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 9.6px;
+  }
+  .lang-row:last-child { border-bottom: none; }
+  .lang-row .lvl { font-family: var(--mono); font-size: 8px; color: var(--muted); }
+  .lang-row .nm { color: var(--ink); font-weight: 500; }
+
+  .edu-item { margin-bottom: 4mm; }
+  .edu-item .school { font-family: var(--serif); font-weight: 600; font-size: 10.5px; color: var(--ink); }
+  .edu-item .deg { font-size: 9px; color: var(--body); margin-top: 1px; }
+  .edu-item .meta { font-family: var(--mono); font-size: 7.8px; color: var(--muted); margin-top: 2px; }
+
+  footer {
+    position: absolute;
+    bottom: 8mm;
+    left: 17mm; right: 17mm;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 7.5px;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+    padding-top: 3mm;
+    letter-spacing: 0.04em;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="name">Sungok Woo</div>
+    <div class="role">Full-Stack &amp; Systems Developer</div>
+    <div class="contact">
+      <span>Irvine, CA</span><span class="sep">/</span>
+      <a href="mailto:sogogi0201@gmail.com">sogogi0201@gmail.com</a><span class="sep">/</span>
+      <span>(949) 933-9081</span><span class="sep">/</span>
+      <a href="https://github.com/sogogii">github.com/sogogii</a><span class="sep">/</span>
+      <a href="https://www.linkedin.com/in/sungok-woo-8189292b1/">linkedin.com/in/sungok-woo</a>
+    </div>
+  </header>
+
+  <div class="body-grid">
+    <!-- MAIN COLUMN -->
+    <div class="main">
+      <section>
+        <div class="sec-title">Profile</div>
+        <p class="summary">
+          Computer Science student at UC Irvine who works across the full stack and down to the metal.
+          I have shipped a production tutoring platform spanning web and mobile, integrated the Anthropic
+          Claude API for AI matching and report generation, and built systems-level software in C including
+          a UNIX shell, a custom memory allocator, and a multi-threaded TCP server.
+        </p>
+      </section>
+
+      <section>
+        <div class="sec-title">Experience</div>
+        <div class="entry">
+          <div class="entry-head">
+            <div class="entry-title">Lead Developer <span class="at">/ Growth Tutoring Platform</span></div>
+            <div class="entry-date">Nov 2025 &ndash; Present</div>
+          </div>
+          <ul class="points">
+            <li>Built a full-stack tutoring platform across web and mobile (React Native/Expo) with real-time messaging, Stripe payment processing, and Amazon Chime SDK video sessions.</li>
+            <li>Engineered an AI tutor matching system using the Anthropic Claude API, ranking tutors against student intake profiles and returning match scores with natural-language explanations.</li>
+            <li>Developed an AI Progress Report feature where Claude generates professional parent-facing session narratives from tutor inputs, with subscription-based gating and automated reward detection.</li>
+            <li>Advanced to the semi-finals of the Stella Zhang New Venture Competition and Butterworth Competition, presenting the platform's AI ecosystem and business model to investors and technical judges.</li>
+          </ul>
+          <div class="tech">React · Spring Boot · MySQL · React Native · Anthropic Claude API · Stripe · AWS</div>
+        </div>
+      </section>
+
+      <section>
+        <div class="sec-title">Projects</div>
+        <div class="entry">
+          <div class="entry-head">
+            <div class="entry-title">Information Retrieval Search Engine</div>
+            <div class="entry-date">Jan 2026 &ndash; Mar 2026</div>
+          </div>
+          <ul class="points">
+            <li>Built a multithreaded web crawler targeting UCI academic domains with politeness enforcement, trap detection, and near-duplicate filtering.</li>
+            <li>Developed a disk-based inverted index with Porter stemming, bigram indexing, and important tag-boosting.</li>
+            <li>Implemented TF-IDF search with cosine normalization, bigram query boosting, and URL penalties.</li>
+          </ul>
+          <div class="tech">Python · Flask · NLTK · BeautifulSoup · Tkinter · JSON</div>
+        </div>
+        <div class="entry">
+          <div class="entry-head">
+            <div class="entry-title">Low-Level System Programming</div>
+            <div class="entry-date">Sep 2025 &ndash; Dec 2025</div>
+          </div>
+          <ul class="points">
+            <li>Built a UNIX shell supporting multi-stage pipelines, I/O redirection, background job control, and signal handling using fork/execvp.</li>
+            <li>Implemented a custom memory allocator using segregated free lists, boundary-tag coalescing, and block splitting.</li>
+            <li>Designed a multi-threaded TCP server across three concurrency models: mutex threading, reader-writer locks, and producer-consumer with semaphores.</li>
+          </ul>
+          <div class="tech">C · UNIX · Pthreads · TCP Sockets · Valgrind · GDB · Make</div>
+        </div>
+      </section>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="side">
+      <section>
+        <div class="sec-title">Education</div>
+        <div class="edu-item">
+          <div class="school">UC Irvine</div>
+          <div class="deg">B.S. Computer Science</div>
+          <div class="meta">Sep 2024 &ndash; Sep 2026 (exp.)</div>
+        </div>
+        <div class="edu-item">
+          <div class="school">Orange Coast College</div>
+          <div class="deg">Computer Science</div>
+          <div class="meta">Aug 2022 &ndash; May 2024</div>
+        </div>
+      </section>
+
+      <section>
+        <div class="sec-title">Skills</div>
+        <div class="skill-group">
+          <h4>Languages</h4>
+          <div class="chips">
+            <span class="chip">C / C++</span><span class="chip">Java</span><span class="chip">Python</span>
+            <span class="chip">JavaScript</span><span class="chip">SQL</span><span class="chip">HTML / CSS</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>Frameworks</h4>
+          <div class="chips">
+            <span class="chip">React</span><span class="chip">React Native</span><span class="chip">Node.js</span>
+            <span class="chip">Spring Boot</span><span class="chip">Flask</span><span class="chip">Bootstrap</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>Tools &amp; Platforms</h4>
+          <div class="chips">
+            <span class="chip">Git</span><span class="chip">MySQL</span><span class="chip">AWS</span>
+            <span class="chip">Claude API</span><span class="chip">Tomcat</span><span class="chip">Maven</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="sec-title">Coursework</div>
+        <p style="font-size:9px;color:var(--body);line-height:1.5;">
+          Machine Learning · Algorithm Analysis · Information Retrieval · Data Management (SQL) ·
+          Computer Organization · Quantum Computing · Data Structures
+        </p>
+      </section>
+
+      <section>
+        <div class="sec-title">Languages</div>
+        <div class="lang-row"><span class="nm">Korean</span><span class="lvl">Native</span></div>
+        <div class="lang-row"><span class="nm">English</span><span class="lvl">Professional</span></div>
+        <div class="lang-row"><span class="nm">French</span><span class="lvl">Intermediate</span></div>
+      </section>
+    </div>
+  </div>
+
+  <footer>sungokwoo.com · Sungok Woo</footer>
+</div>
+</body>
+</html>

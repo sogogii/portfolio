@@ -111,7 +111,12 @@ function About() {
       <Reveal>
         <SectionHeading index="01" title="About Me" />
         <div className="about">
-          <p className="about__text">{about}</p>
+          <div className="about__intro">
+            <div className="about__photo">
+              <img src="/headshot.jpg" alt="Portrait of Sungok Woo" loading="lazy" />
+            </div>
+            <p className="about__text">{about}</p>
+          </div>
           <div className="about__edu">
             <h3>Education</h3>
             {education.map((e) => (

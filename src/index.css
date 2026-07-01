@@ -393,17 +393,6 @@ a { color: inherit; text-decoration: none; }
 }
 .contact__links a:hover { color: var(--accent); }
 
-/* ---------- Footer ---------- */
-.footer {
-  text-align: center;
-  padding: 2.75rem 1rem;
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.03em;
-  color: var(--text-dim);
-  border-top: 1px solid var(--border-soft);
-}
-
 /* ---------- Reveal animation ---------- */
 .reveal {
   opacity: 0;

@@ -31,7 +31,6 @@ export const content = {
         text: "I'm always open to new opportunities, collaborations, and conversations. Whether you have a question or just want to say hi, my inbox is open.",
         cta: 'Say Hello',
       },
-      footer: (name) => `Designed & built by ${name}`,
     },
     profile: {
       name: 'Sungok Woo',
@@ -118,7 +117,6 @@ export const content = {
         contact: '연락처',
       },
       hero: {
-        greeting: '안녕하세요, 저는',
         ctaWork: '작업물 보기',
         ctaContact: '연락하기',
       },
@@ -135,12 +133,9 @@ export const content = {
         languagesHeading: '구사 언어',
       },
       contact: {
-        index: '05. 다음 이야기',
-        title: '연락하기',
         text: '새로운 기회와 협업, 그리고 대화에는 언제나 열려 있습니다. 궁금하신 점이 있거나 가볍게 인사를 건네고 싶으시다면 언제든 편하게 메일 주세요.',
-        cta: '인사 건네기',
+        cta: '연락하기',
       },
-      footer: (name) => `${name}가 직접 디자인하고 개발했습니다`,
     },
     profile: {
       name: 'Sungok Woo',

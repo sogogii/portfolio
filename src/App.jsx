@@ -121,7 +121,7 @@ function Hero() {
   return (
     <section id="top" className="hero">
       <div className="hero__inner">
-        <p className="hero__greeting">{t.ui.hero.greeting}</p>
+        {t.ui.hero.greeting && <p className="hero__greeting">{t.ui.hero.greeting}</p>}
         <h1 className="hero__name">{profile.name}</h1>
         <h2 className="hero__title">{profile.title}</h2>
         <p className="hero__tagline">{profile.tagline}</p>
@@ -293,8 +293,8 @@ function Contact() {
   return (
     <section id="contact" className="section section--contact">
       <Reveal>
-        <p className="contact__index">{t.ui.contact.index}</p>
-        <h2 className="contact__title">{t.ui.contact.title}</h2>
+        {t.ui.contact.index && <p className="contact__index">{t.ui.contact.index}</p>}
+        {t.ui.contact.title && <h2 className="contact__title">{t.ui.contact.title}</h2>}
         <p className="contact__text">{t.ui.contact.text}</p>
         <a className="btn btn--primary btn--lg" href={`mailto:${profile.email}`}>
           {t.ui.contact.cta}
@@ -306,15 +306,6 @@ function Contact() {
         </div>
       </Reveal>
     </section>
-  )
-}
-
-function Footer() {
-  const { t } = useLang()
-  return (
-    <footer className="footer">
-      <p>{t.ui.footer(t.profile.name)}</p>
-    </footer>
   )
 }
 
@@ -330,7 +321,6 @@ function AppContent() {
         <Skills />
         <Contact />
       </main>
-      <Footer />
     </>
   )
 }
